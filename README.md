@@ -95,3 +95,16 @@ Add our import in `tests.py`:
 ```python
 from .models import Studentapp
 ```
+
+`git push`
+
+`git checkout -b tdd2`
+
+`git push`
+
+`fatal: The current branch tdd2 has no upstream branch.`
+
+`To push the current branch and set the remote as upstream, use`
+
+`   git push --set-upstream origin tdd2`
+
