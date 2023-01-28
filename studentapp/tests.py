@@ -8,3 +8,12 @@ class StudentappModelTest(TestCase):
         studentapp = Studentapp.objects.count()
 
         self.assertEqual(studentapp,0)
+
+    def test_string_rep_of_objects(self):
+        
+        studentapp = Studentapp.objects.create(
+            title="Test Studentapp",
+            body="Test Body"
+        )
+
+        self.assertEqual(str(studentapp),studentapp.title)
