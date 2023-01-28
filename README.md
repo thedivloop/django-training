@@ -45,3 +45,53 @@ __pycache__/
 *.py[cod]
 env/
 ```
+
+Create the repository on github and then link as below.
+
+`git add .`
+
+`git status`
+
+`git commit -m "Initial commit"`
+
+`git remote add origin git@github.com:thedivloop/django-training.git`
+
+`git push -u origin main`
+
+Add our test to `tests.py`:
+
+```python
+from django.test import TestCase
+
+# Create your tests here.
+
+class StudentappModelTest(TestCase):
+    def test_studentapp_model_exists(self):
+        studentapp = Studentapp.objects.all()
+
+        self.assertEqual(studentapp,[])
+```
+
+Run the tests:
+
+`python3 manage.py test`
+
+Create `Studentapp` class:
+
+```python
+class Studentapp(models.Model):
+    title = models.CharField(max_length=25)
+    body = models.TextField(max_length=200)
+    created_at = models.DateTimeField(auto_now=True)
+    modified_at = models.DateTimeField(auto_now=True)
+```
+
+`python3 manage.py makemigrations`
+
+`python3 manage.py migrate`
+
+Add our import in `tests.py`:
+
+```python
+from .models import Studentapp
+```
